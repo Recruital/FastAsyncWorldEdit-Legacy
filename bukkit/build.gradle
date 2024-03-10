@@ -53,13 +53,8 @@ shadowJar {
         include(dependency(':core'))
         include(dependency('io.papermc:paperlib:1.0.6'))
     }
-    archiveFileName = "${parent.name}-${project.name}-${parent.version}.jar"
-    destinationDirectory = file '../target'
+    archiveFileName = "FastAsyncWorldEdit.jar"
     relocate('com.google.gson', 'com.sk89q.worldedit.internal.gson')
-}
-shadowJar.doLast {
-    task ->
-        ant.checksum file: task.archivePath
 }
 
 build.dependsOn(shadowJar);
